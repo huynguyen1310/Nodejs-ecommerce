@@ -3,7 +3,7 @@
 const _ = require('lodash')
 
 const getInfoData = ({ fields = [], object = {} }) => {
-  return _.pick(object, files)
+  return _.pick(object, fields)
 }
 
 module.exports = {
