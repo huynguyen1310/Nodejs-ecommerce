@@ -69,7 +69,7 @@ const authenticationV2 = asyncHandler(async (req, res, next) => {
   if (req.headers[HEADER.REFRESHTOKEN]) {
     try {
       const refreshToken = req.headers[HEADER.REFRESHTOKEN]
-      const decodeUser = JWT.verify(refreshToken, keyToken.privateKey)
+      const decodeUser = await JWT.verify(refreshToken, keyToken.privateKey)
       if (userId != decodeUser.userId) throw new AuthFailureError('Invaild request')
       req.keyStore = keyToken
       req.user = decodeUser
